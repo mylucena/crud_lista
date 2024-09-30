@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const itemRoutes = require('./routes/itemRoutes'); // Certifique-se de que este caminho está correto
-require('dotenv').config(); // Carrega variáveis de ambiente do arquivo .env
+const itemRoutes = require('./routes/itemRoutes'); 
+require('dotenv').config(); 
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,11 +13,11 @@ app.use(express.json());
 app.use('/itens', itemRoutes); 
 
 // Conectar ao MongoDB
-mongoose.connect(process.env.MONGO_URI) // Removidas as opções depreciadas
+mongoose.connect(process.env.MONGO_URI) 
   .then(() => console.log('Conectado ao MongoDB'))
   .catch((error) => console.error('Erro ao conectar ao MongoDB', error));
 
-// Iniciar o servidor
+  
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });  

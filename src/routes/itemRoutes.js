@@ -2,7 +2,7 @@ const express = require('express');
 const Item = require('../models/itemModel');
 const router = express.Router();
 
-// Criar item (POST)
+// (POST)
 router.post('/', async (req, res) => {
   try {
     const item = new Item(req.body);
@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Listar todos os itens (GET)
+//(GET)
 router.get('/', async (req, res) => {
   try {
     const itens = await Item.find();
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Listar item por ID (GET)
+//(GET)
 router.get('/:id', async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Atualizar item (PUT)
+//(PUT)
 router.put('/:id', async (req, res) => {
   try {
     const itemAtualizado = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Remover item (DELETE)
+// (DELETE)
 router.delete('/:id', async (req, res) => {
   try {
     const itemDeletado = await Item.findByIdAndDelete(req.params.id);
